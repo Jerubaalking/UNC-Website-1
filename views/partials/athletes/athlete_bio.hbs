@@ -1,0 +1,124 @@
+<div class="l-container--no-spacing-vertical-bottom" style="margin:15%;">
+  <div class="l-container__content">
+
+    <div class="c-bio">
+      <h2 class="c-bio__title">{{athlete.firstname}} {{athlete.sirname}} Biography</h2>
+
+      <div class="c-bio__content">
+
+        <div class="c-bio__image">
+          <img
+            src="{{athlete.bodyImage}}">
+        </div>
+        <div class="c-bio__image--mobile">
+          <img
+            src="{{athlete.bodyImage}}">
+        </div>
+        <div class="c-bio__info">
+          <div class="c-bio__info-details">
+            <div class="c-bio__row--1col">
+              <div class="c-bio__field">
+                <div class="c-bio__label">Status</div>
+                <div class="c-bio__text">Active</div>
+              </div>
+            </div>
+            <div class="c-bio__row--1col">
+
+              <div class="c-bio__field c-bio__field--border-bottom-small-screens">
+                <div class="c-bio__label">Hometown</div>
+                <div class="c-bio__text">{{athlete.region}}, {{athlete.country}}</div>
+              </div>
+
+            </div>
+
+            <div class="c-bio__row--2col">
+
+              <div class="c-bio__field c-bio__field--border-bottom-small-screens">
+                <div class="c-bio__label">Trains at</div>
+                <div class="c-bio__text">{{athlete.gym}}</div>
+              </div>
+
+              <div class="c-bio__field c-bio__field--border-bottom-small-screens">
+                <div class="c-bio__label">Fighting style</div>
+                <div class="c-bio__text">{{athlete.style}}</div>
+              </div>
+
+            </div>
+
+            <div class="c-bio__row--3col">
+
+              <div class="c-bio__field">
+                <div class="c-bio__label">Age</div>
+                <div class="c-bio__text">
+                  <div class="field field--name-age field--type-integer field--label-hidden field__item">{{setAge athlete.birthdate}}</div>
+                </div>
+              </div>
+
+              <div class="c-bio__field">
+                <div class="c-bio__label">Height</div>
+                <div class="c-bio__text">66.00</div>
+              </div>
+
+              <div class="c-bio__field">
+                <div class="c-bio__label">Weight</div>
+                <div class="c-bio__text">125.00</div>
+              </div>
+
+            </div>
+
+            <div class="c-bio__row--3col">
+
+              <div class="c-bio__field">
+                <div class="c-bio__label">Octagon Debut</div>
+                <div class="c-bio__text">Jun. 13, 2020</div>
+              </div>
+
+              <div class="c-bio__field">
+                <div class="c-bio__label">Reach</div>
+                <div class="c-bio__text">{{athlete.handreach}}</div>
+              </div>
+
+              <div class="c-bio__field">
+                <div class="c-bio__label">Leg reach</div>
+                <div class="c-bio__text">{{athlete.legreach}}</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="c-bio__social">
+            <div class="c-bio__social-title">Follow athlete socials</div>
+
+            <ul class="c-bio__social-menu">
+              <li class="c-bio__social-item">
+                <a class="c-bio__social-link" href="https://facebook.com/MMA.Mashka"><span
+                    class="c-bio__social-icon"><svg class="c-bio__social-svg">
+                      <title></title>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="/themes/custom/ufc/assets/svg/sprite-ui.svg#facebook"></use>
+                    </svg></span><span class="c-bio__social-text"></span></a>
+              </li>
+              <li class="c-bio__social-item">
+                <a class="c-bio__social-link" href="https://twitter.com/MMA_Mashka"><span
+                    class="c-bio__social-icon"><svg class="c-bio__social-svg">
+                      <title></title>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="/themes/custom/ufc/assets/svg/sprite-ui.svg#twitter"></use>
+                    </svg></span><span class="c-bio__social-text"></span></a>
+              </li>
+              <li class="c-bio__social-item">
+                <a class="c-bio__social-link" href="https://instagram.com/MMA.Mashka"><span
+                    class="c-bio__social-icon"><svg class="c-bio__social-svg">
+                      <title></title>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xlink:href="/themes/custom/ufc/assets/svg/sprite-ui.svg#instagram"></use>
+                    </svg></span><span class="c-bio__social-text"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

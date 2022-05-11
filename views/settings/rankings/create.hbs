@@ -1,0 +1,43 @@
+
+<form method="POST" class="d-block ajaxForm" action="/settings/news/add" enctype="multipart/form-data" >
+{{!-- {{user_id}} --}}
+    <div class="form-row">
+        <div class="form-group col-md-12">
+        <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name ="title" required>
+        <small id="titlelbl" class="form-text text-muted">title</small>
+        </div>
+         <div class="form-group col-md-12">
+        <label for="sub_title">Subtitle</label>
+            <input type="text" class="form-control" id="sub_title" name ="sub_title" required>
+        <small id="sub_titlelbl" class="form-text text-muted">sub-title</small>
+        </div>
+        
+        <div class="form-group col-md-12">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name ="author" required>
+        </div>
+
+    <div class="form-group col-md-12">
+        <label for="imageUrl">Image</label>
+        <div class="custom-file-upload">
+            <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
+        </div>
+    </div>
+        <div class="form-group col-md-12">
+            <label for="details">details</label>
+            <textarea class="form-control" id="details" name ="details" style="height:20vh;"></textarea>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="descriptions">description</label>
+            <textarea class="form-control" id="description" name ="description" style="height:20vh;"></textarea>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">add news</button>
+        </div>
+    </div>
+</form>
+
+<script>
+  
+</script>

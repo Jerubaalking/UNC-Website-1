@@ -1,0 +1,405 @@
+<head>
+
+{{!-- style.min --}}
+    <link rel="stylesheet" id="wp-block-library-css"
+        href="/public/css/style.min.css" type="text/css"
+        media="all">
+
+        
+    <style id="global-styles-inline-css" type="text/css">
+        body {
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
+            --wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
+            --wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
+            --wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
+            --wp--preset--duotone--midnight: url('#wp-duotone-midnight');
+            --wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
+            --wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
+            --wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+    </style>
+
+    <link rel="stylesheet" id="external-font-css"
+        href="https://fonts.googleapis.com/css?family=Barlow+Condensed%3A400%2C600%2C700&amp;ver=5.9.1" type="text/css"
+        media="all">
+    <link rel="stylesheet" id="external-bootstrap-css"
+        href="https://groupone-holdings.com/wp-content/themes/groupone-holdings/bootstrap/css/bootstrap.min.css?ver=4.4.1"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="external-fontawesome-css"
+        href="https://groupone-holdings.com/wp-content/themes/groupone-holdings/fontawesome/css/all.min.css?ver=5.13.0"
+        type="text/css" media="all">
+
+    <link rel="stylesheet" id="layout-css"
+        href="https://groupone-holdings.com/wp-content/themes/groupone-holdings/css/layout.css?ver=5.9.1"
+        type="text/css" media="all">
+
+    <link rel="stylesheet" id="wysiwyg-content-css"
+        href="https://groupone-holdings.com/wp-content/themes/groupone-holdings/css/wysiwyg-content.css?ver=5.9.1"
+        type="text/css" media="all">
+
+        
+    <script type="text/javascript"
+        src="https://groupone-holdings.com/wp-content/themes/groupone-holdings/js/throttle.js?ver=5.9.1"
+        id="throttle-js"></script>
+    <script type="text/javascript"
+        src="https://groupone-holdings.com/wp-content/themes/groupone-holdings/js/visible-content-watcher.js?ver=5.9.1"
+        id="visible-content-watcher-js"></script>
+    <script type="text/javascript"
+        src="https://groupone-holdings.com/wp-content/themes/groupone-holdings/js/smooth-scroll.js?ver=5.9.1"
+        id="smooth-scroll-js"></script>
+    <script type="text/javascript"
+        src="https://groupone-holdings.com/wp-content/themes/groupone-holdings/js/cookie.min.js?ver=5.9.1"
+        id="cookie-js"></script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5QWH39D');</script>
+</head>
+
+<section class="section people-section" data-vcw-status="added" data-slug="senior-leadership">
+    <div class="container">
+        <h2 class="section-title">Senior Leadership</h2>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <article class="person-card" data-id="0">
+                    <div class="image">
+                        <img src="https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-300x300.jpg"
+                            class="img-fluid" alt="" loading="lazy" sizes="75vw, (min-width: 768px) 25vw"
+                            srcset="https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-300x300.jpg 300w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-1024x1024.jpg 1024w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-150x150.jpg 150w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-768x768.jpg 768w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-1536x1536.jpg 1536w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-450x450.jpg 450w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile-600x600.jpg 600w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Chatri_Sityodtong-profile.jpg 1800w"
+                            width="300" height="300">
+                    </div>
+                    <h3 class="name">
+                        Chatri Sityodtong </h3>
+                    <h4 class="position">
+                        Chairman and CEO </h4>
+                </article>
+
+                <script>
+                    if (!window.personPosts) { window.personPosts = []; }
+                    window.personPosts.push({
+                        id: 0,
+                        image: "<img width=\"300\" height=\"300\" src=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-300x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" loading=\"lazy\" sizes=\"75vw, (min-width: 768px) 25vw\" srcset=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-300x300.jpg 300w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-1024x1024.jpg 1024w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-150x150.jpg 150w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-768x768.jpg 768w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-1536x1536.jpg 1536w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-450x450.jpg 450w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile-600x600.jpg 600w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Chatri_Sityodtong-profile.jpg 1800w\" \/>",
+                        title: 'Chatri Sityodtong',
+                        subtitle: 'Chairman and CEO',
+                        content: "<p>Chatri Sityodtong is the Founder, Chairman and CEO of Group ONE Holdings (ONE), Asia&#8217;s largest global sports media platform in history with a broadcast to 150+ countries around the world.<\/p>\n<p>According to Nielsen, ONE ranks amongst the world&#8217;s top 10 biggest sports media properties in terms of viewership and engagement. Through its marquee sports properties (ONE Championship and ONE Esports) and its passionate millennial community, ONE is a celebration of Asia&#8217;s greatest cultural phenomena, Martial Arts and Gaming, and the deep-rooted values of integrity, humility, honor, respect, courage, discipline, and compassion. ONE is on a mission to unleash real-life superheroes, tell stories, celebrate values, ignite dreams, inspire nations, and change the world.<\/p>\n<p>Sityodtong is a self-made entrepreneur and lifelong martial artist from Thailand. He is also the star of The Apprentice, the award-winning global reality TV series on Netflix. His rags-to-riches life story has inspired millions around the world on BBC, CNN, Bloomberg TV, CNBC, and other major media. Most recently, he was named Asia&#8217;s King of Martial Arts by the Financial Times, and Asia&#8217;s 2nd Most Powerful Person in Sports by FOX Sports. Business Insider also ranked him as one of Asia&#8217;s top 100 business leaders. He is a perennial keynote speaker at the world&#8217;s top business conferences such as Forbes Global CEO Conference, Milken Institute, CNBC Asia Business Leaders Awards, YPO Edge, Global Entrepreneurship Summit (GES), Cannes Lions, Asian Leadership Conference, and others. Sityodtong has also been featured as the cover story for magazines such as Inc, Esquire, Playboy, CEO, Wealth, Tatler, The Peak, MillionaireAsia, Black Belt, and more. Sityodtong is an Entrepreneur-in-Residence at INSEAD, one of the world&#8217;s top business schools.<\/p>\n<p>Inducted into the Black Belt Hall of Fame in 2019, Sityodtong has over 35+ years of martial arts experience as a student, a fighter, a teacher, and a coach. Sityodtong is a certified senior Muay Thai instructor under the legendary Kru Yodtong Senanan of the world-renowned Sityodtong Gym in Thailand. He also holds a Brown Belt in Brazilian Jiu-Jitsu under Master Renzo Gracie.<\/p>\n<p>Chatri Sityodtong holds an MBA from Harvard Business School and a BA from Tufts University.<\/p>\n"
+                    });
+                </script>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="person-card" data-id="1">
+                    <div class="image">
+                        <img src="https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-300x300.jpg"
+                            class="img-fluid" alt="" loading="lazy" sizes="75vw, (min-width: 768px) 25vw"
+                            srcset="https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-300x300.jpg 300w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-1024x1024.jpg 1024w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-150x150.jpg 150w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-768x768.jpg 768w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-450x450.jpg 450w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile-600x600.jpg 600w, https://cdn.groupone-holdings.com/wp-content/uploads/2020/12/Hua_Fung_Teh-profile.jpg 1200w"
+                            width="300" height="300">
+                    </div>
+                    <h3 class="name">
+                        Hua Fung Teh </h3>
+                    <h4 class="position">
+                        Group President </h4>
+                </article>
+
+                <script>
+                    if (!window.personPosts) { window.personPosts = []; }
+                    window.personPosts.push({
+                        id: 1,
+                        image: "<img width=\"300\" height=\"300\" src=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-300x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" loading=\"lazy\" sizes=\"75vw, (min-width: 768px) 25vw\" srcset=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-300x300.jpg 300w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-1024x1024.jpg 1024w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-150x150.jpg 150w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-768x768.jpg 768w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-450x450.jpg 450w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile-600x600.jpg 600w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2020\/12\/Hua_Fung_Teh-profile.jpg 1200w\" \/>",
+                        title: 'Hua Fung Teh',
+                        subtitle: 'Group President',
+                        content: "<p>Hua Fung Teh is the Group President of Group ONE Holdings (ONE). Together with Chairman\/CEO Chatri Sityodtong, Teh leads the company\u2019s management team with a focus on group strategy, international expansion, strategic partnerships and capital markets. He also served for a year as the company\u2019s Chief Financial Officer.<\/p>\n<p>Prior to ONE, Teh was a Principal at global private equity firm TPG Capital (TPG). As a senior member of the Southeast Asia investment team, he was responsible for the origination, execution and portfolio management of growth and late-stage investment deals in Southeast Asia. He also served on TPG\u2019s China and US teams prior. Before TPG, Teh was an aviator with the Republic of Singapore Air Force (RSAF) and held leadership positions both at the RSAF and at Singapore\u2019s Ministry of Trade and Industry, where he served as the ministry\u2019s Formula One (F1) Project Team Leader. In this role he helped secure the F1 Grand Prix hosting rights for Singapore and coordinated efforts between government agencies and private sector parties to execute the first night race in F1 history in 2008.<\/p>\n<p>Teh holds an MBA from Harvard Business School and an MEng and BS in Electrical Engineering from the Massachusetts Institute of Technology (MIT), where he was a member of the men\u2019s varsity basketball team. A Taekwondo black-belt holder, he is also a World Economic Forum Young Global Leader (class of 2015) and served on the Global Steering Committee of the Milken Institute Young Leaders Circle.<\/p>\n"
+                    });
+                </script>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="person-card" data-id="2">
+                    <div class="image">
+                        <img src="https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-720x720.jpg"
+                            class="img-fluid" alt="" loading="lazy" sizes="75vw, (min-width: 768px) 25vw"
+                            srcset="https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-720x720.jpg 720w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-1024x1024.jpg 1024w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-300x300.jpg 300w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-768x768.jpg 768w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-1536x1536.jpg 1536w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-320x320.jpg 320w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-480x480.jpg 480w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1-640x640.jpg 640w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Jesley_Chua-profile-1.jpg 1800w"
+                            width="720" height="720">
+                    </div>
+                    <h3 class="name">
+                        Jesley Chua </h3>
+                    <h4 class="position">
+                        Chief Financial Officer </h4>
+                </article>
+
+                <script>
+                    if (!window.personPosts) { window.personPosts = []; }
+                    window.personPosts.push({
+                        id: 2,
+                        image: "<img width=\"720\" height=\"720\" src=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-720x720.jpg\" class=\"attachment-medium size-medium\" alt=\"\" loading=\"lazy\" sizes=\"75vw, (min-width: 768px) 25vw\" srcset=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-720x720.jpg 720w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-1024x1024.jpg 1024w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-300x300.jpg 300w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-768x768.jpg 768w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-1536x1536.jpg 1536w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-320x320.jpg 320w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-480x480.jpg 480w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1-640x640.jpg 640w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Jesley_Chua-profile-1.jpg 1800w\" \/>",
+                        title: 'Jesley Chua',
+                        subtitle: 'Chief Financial Officer',
+                        content: "<p>Jesley is the CFO of Group ONE Holdings (ONE). In this role, she is responsible for investor relations and capital markets, corporate and strategic finance. She was previously Head of Corporate Finance, and also served as interim COO of ONE China.<\/p>\n<p>Prior to ONE, Jesley spent over a decade in asset management including 8 years at GIC, Singapore\u2019s sovereign wealth fund, where she started her career as a research analyst, before transitioning to public and private equity investing. She was also cofounder of a leading alternative lending fund in South East Asia, where she led capital raising and portfolio management. Her experience spans global investing, strategy, and capital raising.<\/p>\n<p>Jesley has a BA in Economics from Stanford University, where she was a member of the Division 1 Championship winning Stanford Women\u2019s Rugby team.<\/p>\n"
+                    });
+                </script>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="person-card" data-id="3">
+                    <div class="image">
+                        <img src="https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-720x720.jpg"
+                            class="img-fluid" alt="" loading="lazy" sizes="75vw, (min-width: 768px) 25vw"
+                            srcset="https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-720x720.jpg 720w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-1024x1024.jpg 1024w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-300x300.jpg 300w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-768x768.jpg 768w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-320x320.jpg 320w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-480x480.jpg 480w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1-640x640.jpg 640w, https://cdn.groupone-holdings.com/wp-content/uploads/2021/07/Carlos_Alimurung-profile-1.jpg 1100w"
+                            width="720" height="720">
+                    </div>
+                    <h3 class="name">
+                        Carlos Alimurung </h3>
+                    <h4 class="position">
+                        CEO, ONE Esports </h4>
+                </article>
+
+                <script>
+                    if (!window.personPosts) { window.personPosts = []; }
+                    window.personPosts.push({
+                        id: 3,
+                        image: "<img width=\"720\" height=\"720\" src=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-720x720.jpg\" class=\"attachment-medium size-medium\" alt=\"\" loading=\"lazy\" sizes=\"75vw, (min-width: 768px) 25vw\" srcset=\"https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-720x720.jpg 720w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-1024x1024.jpg 1024w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-300x300.jpg 300w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-768x768.jpg 768w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-320x320.jpg 320w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-480x480.jpg 480w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1-640x640.jpg 640w, https:\/\/groupone-holdings.com\/wp-content\/uploads\/2021\/07\/Carlos_Alimurung-profile-1.jpg 1100w\" \/>",
+                        title: 'Carlos Alimurung',
+                        subtitle: 'CEO, ONE Esports',
+                        content: "<p>Carlos is the CEO of ONE Esports, the esports arm of Group ONE Holdings (ONE), Asia\u2019s largest global sports media property. He is responsible for the overall vision and execution of ONE Esports&#8217; strategy and has P&#038;L ownership of the business. Carlos joined ONE Esports as the former Chief Business Officer of Battlefy.<\/p>\n<p>Prior to Battlefy, Carlos worked at Univision, where as SVP of Corporate Business Development, he was responsible for corporate venture investments and new business development. Carlos also previously served as the Head of Strategy for LG Electronics\u2019 North America consumer electronics business.<\/p>\n<p>Carlos began his career as a management consultant at Marakon Associates, where he advised clients in the US, UK, Brazil, and Singapore. He also served in the AmeriCorps*NCCC program, helping communities along the US East Coast and Puerto Rico across a wide spectrum of needs.<\/p>\n<p>He was awarded a McKinsey &#038; Company Fellowship during his MBA at MIT Sloan, and he graduated Cum Laude from the Wharton School at the University of Pennsylvania.<\/p>\n"
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</section>

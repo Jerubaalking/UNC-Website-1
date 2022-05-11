@@ -1,0 +1,15 @@
+scripts
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.js
+
+css
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.css
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.lite.css
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.lite.min.css
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css
+
+maps
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.lite.min.css.map
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css.map
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.lite.min.js.map
+https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js.map

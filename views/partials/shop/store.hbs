@@ -1,0 +1,64 @@
+{{!-- main round, prelims, early prelims buttons --}}
+<div class="l-container event-details-ad--prev-sibling">
+  <div class=" fight-card field-group-tabs-wrapper">
+
+    <div data-horizontal-tabs="" class="horizontal-tabs clearfix">
+      <ul data-horizontal-tabs-list="" class="horizontal-tabs-list">
+
+      </ul>
+
+      {{!-- main card, prelims, early prelims --}}
+      <div class="c-listing__wrapper--horizontal-tabs horizontal-tabs-panes" data-horizontal-tabs-panes=""><input
+          class="horizontal-tabs-active-tab" type="hidden" value="edit-group-main-card">
+
+        {{!-- Shop --}}
+        <details class="main-card js-form-wrapper form-wrapper horizontal-tabs-pane" id="edit-group-main-card"
+          open="open" data-once="details">
+          <summary role="button" aria-controls="edit-group-main-card" aria-expanded="true" aria-pressed="true">Shop<span
+              class="summary"></span></summary>
+          <div class="details-wrapper">
+
+            <div
+              class="view view-eva view-event-fights view-id-event_fights view-display-id-entity_view_1 js-view-dom-id-00fba68aff4175fb7395c4abf80d66fa4a799d12338d21b3568008b4d4e0581a">
+
+              <section class="l-listing--stacked--full-width">
+
+                {{!-- product cards --}}
+                {{>shop/product_card}}
+
+              </section>
+
+            </div>
+
+          </div>
+        </details>
+
+       
+
+        {{!-- tickets --}}
+        <details class="main-card js-form-wrapper form-wrapper horizontal-tabs-pane horizontal-tab-hidden" id="tickets"
+          open="open" data-once="details" style="display: none;">
+          <summary role="button" aria-controls="tickets" aria-expanded="true" aria-pressed="true">Tickets<span
+              class="summary"></span></summary>
+          <div class="details-wrapper">
+
+            <div
+              class="view view-eva view-event-fights view-id-event_fights view-display-id-entity_view_1 js-view-dom-id-00fba68aff4175fb7395c4abf80d66fa4a799d12338d21b3568008b4d4e0581a">
+
+              <section class="l-listing--stacked--full-width">
+
+                {{!-- product cards --}}
+                {{>shop/product_card}}
+
+              </section>
+
+            </div>
+
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </div>
+</div>

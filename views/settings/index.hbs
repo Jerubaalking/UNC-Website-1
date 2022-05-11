@@ -1,0 +1,166 @@
+
+
+ 
+  <div id="block-mainpagecontent" class="block block-system block-system-main-block" style="margin-top: 100px;">
+    <div class=" ds-1col-filters clearfix">
+      <div class="block-region-ds-content">
+        <div class="views-element-container block block-views block-views-blocktrending-page">
+          <div>
+            <!-- end page title -->
+            <div class="row">
+              <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3" style="margin: 20px;">
+                
+                {{!-- <button onclick="showAllHeros()" class="btn btn-dark btn-secondary btn-rounded btn-block">Heros</button> --}}
+                {{!-- <button onclick="showAllRanks()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Ranks</button> --}}
+                <button onclick="showAllNews()" class="btn btn-dark btn-secondary btn-rounded btn-block">News</button>
+                <button onclick="showAllAthletes()" class="btn btn-dark btn-secondary btn-rounded btn-block">Athletes</button>
+                <button onclick="showAllEvents()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Events</button>
+                <button onclick="showAllFitness()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Fitness</button>
+                <button onclick="showAllAboutMMA()" class="btn btn-dark btn-secondary btn-rounded btn-block">About MMA</button>
+                <button onclick="showAllAboutTeam()" class="btn btn-dark btn-secondary btn-rounded btn-block">About Team</button>
+                <button onclick="showAllAboutSport()" class="btn btn-dark btn-secondary btn-rounded btn-block">About Sport</button>
+                <button onclick="showAllAboutOlympics()" class="btn btn-dark btn-secondary btn-rounded btn-block">About Olympics</button>
+              </div>
+              
+              <div id="page_content" style="margin: 10px; float:left;" class="col-xl-9 col-lg-9 col-md-9 col-sm-9 page_content">
+               
+              </div>
+            </div>
+          </div>
+        </div>
+                    
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+ 
+  var showNews = function () {
+    var url = '/settings/news/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+      }
+    });
+  }
+  var showAllAboutMMA = function () {
+    var url = '/settings/about/mma';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+      }
+    });
+  }
+  var showAllAboutTeam = function () {
+    var url = '/settings/about/team';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+      }
+    });
+  }
+  var showAllAboutSport = function () {
+    var url = '/settings/about/sport';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  var showAllAboutOlympics = function () {
+    var url = '/settings/about/olympics';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  var showAllFitness = function () {
+    var url = '/settings/fitness/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  var showAllNews = function () {
+    var url = '/settings/news/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+   var showAllEvents = function () {
+    var url = '/settings/events/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  var showAllArticles = function () {
+    var url = '/settings/articles/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  var showAllAthletes = function () {
+    var url = '/settings/athletes/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  // Show All The Events
+  showNews();
+</script>

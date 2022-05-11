@@ -1,0 +1,49 @@
+<div class="field field--name-body-structured field--type-entity-reference-revisions field--label-hidden field__items"
+    style="margin-top: 130px;">
+
+    {{!-- buttons --}}
+    <div class="field__item">
+        <div class="paragraph paragraph--type--links paragraph--view-mode--default">
+
+            <div class="c-big-links">
+
+                <a href="/about" class="active">MMA</a>
+                <a href="/about/team">Team</a>
+                <a href="/about/sport">Sport</a>
+                <a href="/about/olympics">Olympics</a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    {{!-- two column paragraph --}}
+    <div class="field__item" style="margin-top: -15px; float-left;">
+        <div class="paragraph paragraph--type--two-column-text paragraph--view-mode--default">
+            <div class="c-two-col-paragraph">
+               
+                {{!-- {{>about/people}} --}}
+                <div class="c-one-col-paragraph__wrapper">
+
+                    <div class="c-one-col-paragraph__first_column" style="margin: 0% 17% 10% 20%; font-size:17px;">
+                         <div  style="color: #000;letter-spacing:2px; font-size:22px; font-weight:600; margin-bottom:25px; margin-top:30px; text-align:left;"
+                        class="field field--name-image-card-pre-headline field--type-string field--label-hidden field__item">
+                        THE <span
+                            style="font-family: stolzl; letter-spacing:2px; font-size:20px; color:rgb(15, 56, 109);">SPORT</span>
+                    </div>
+                    {{#each sport}}
+                    <img src="{{imageUrl}}" alt="logo" srcset="{{imageUrl}}">
+                            <br><br>
+                        <div
+                            class="clearfix text-formatted field field--name-column-text-left field--type-text-long field--label-hidden field__item">
+                            <p>{{this.details}}</p>
+                        </div>
+                    {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

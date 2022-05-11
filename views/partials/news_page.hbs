@@ -1,0 +1,75 @@
+<div class="single-work activePage" style="z-index: 0;">
+
+    <div class="singleWork__main" style="background-color:; background-image: url('');" data-color="black">
+        <div class="container__full">
+            <div class="container__large">
+                <div class="singleWork__main__container">
+                    <div class=" singleWork__main__container__content">
+                        <div class="singleWork__main__container__content__logoTxt" style="color:#000000;">{{news.title}}</div>
+                        <div class="singleWork__main__container__content__text" style="color:#000000;"></div>
+                    </div>
+                    <div class="singleWork__main__container__imgWrapper">
+                        <img src="{{news.imageUrl}}" alt=""
+                            class="singleWork__main__container__img" style="object-position: center;  margin-top:-100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{!-- body --}}
+ {{!-- description subtitle --}}
+ <style>
+     .class{
+         line-height: ;
+     }
+ </style>
+<div class="singleWork__result">
+        <div class="container__full">
+            <div class="container__content">
+                <div class="singleWork__result__intro to-animate active-animation" data-offset="mid" data-offset2="100">
+                    <div class="" style="font-size: 30px; font-family:Euclid Circular B; color:black; margin-bottom:25px;">
+                        <p>{{news.sub_title}}</p>
+                    </div>
+                    <div style="font-size: 19px; line-height:25px; font-weight:500; font-family:'Times New Roman', Times, serif; color:rgb(44, 44, 44);">
+                        <p>{{news.details}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{{!-- Articles --}}
+
+<div class="singleWork__result" style="margin-top: -55px;">
+        <div class="container__full">
+            <div class="container__content">
+                {{#each articles}}
+                <div class="singleWork__result__intro to-animate active-animation" data-offset="mid" data-offset2="100">      
+
+                    <div class="" style="font-size: 30px; font-family:; color:black; margin-bottom:25px;">
+                        <p>{{heading}}</p>
+                    </div>
+                    <div style="font-size: 19px; line-height:23px; font-weight:500; font-family:'Times New Roman', Times, serif; color:rgb(44, 44, 44);">
+                        <p>{{article}}</p>
+                    </div>
+                </div>
+
+                    {{/each}}
+            </div>
+        </div>
+</div>
+    {{!-- conclusion --}}
+    <div class="singleWork__result">
+        <div class="container__full">
+            <div class="container__content">
+                <div class="singleWork__result__intro to-animate active-animation" data-offset="mid" data-offset2="100">
+                    <div class="singleWork__result__intro__title">
+                        <p>Related News</p>
+                    </div>
+                    <div class="singleWork__result__intro__content" style="margin-left: 140px;opacity:1;">
+                        {{>news_card2}}
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>  
+</div>

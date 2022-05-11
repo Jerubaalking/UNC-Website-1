@@ -1,0 +1,37 @@
+<div class="card" style="top:0;margin-top:0px;">
+  <div class="card-body">
+    <h4 class="header-title">Articles
+      {{!-- <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal('settings/news/create', 'add news')"> <i class="mdi mdi-plus"></i>Add News</button> --}}
+    </h4>
+
+<div class="table-responsive-sm">
+      <table id="basic-datatable" class="table table-striped dt-responsive " width="100%">
+        <thead>
+          <tr style="background-color: #313a46; color: #ababab;">
+            <th>Heading</th>
+            <th>article</th>
+            <th>options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each articles}}
+            <tr>
+              <td>{{heading}}</td>
+              <td>{{article}}</td>
+              <td>
+              <div class="dropdown text-center">
+      					<button type="button" class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+      					<div class="dropdown-menu dropdown-menu-right">
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/articles/edit/{{id}}', 'update news article');">edit</a>
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/articles/remove/{{id}}', showAllNews )">delete</a>
+      					</div>
+              </td>
+            </tr>
+            {{/each}}
+        </tbody>
+      </table>
+      </div>
+  </div> <!-- end card body-->
+</div>

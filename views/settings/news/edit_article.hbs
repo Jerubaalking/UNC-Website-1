@@ -1,0 +1,34 @@
+<form method="POST" class="d-block ajaxForm" action="/settings/articles/update" enctype="application/x-www-form-urlencoded">
+    {{!-- {{news.id}} --}}
+    <div class="form-row">
+        <input type="hidden" name="id" id="id" value="{{article.id}}">
+        <input type="hidden" name="news_id" id="news_id" value="{{article.news_id}}">
+         <div class="form-group col-md-12">
+            <label for="heading">Heading</label>
+            <input type="text" class="form-control" id="heading" value="{{article.heading}}" name="heading">
+            <small id="headinglbl" class="form-text text-muted">heading</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="article">Article</label>
+            <textarea class="form-control" id="article" name="article"  placeholder="Article here..." style="height:60vh;">{{article.article}}</textarea>
+        </div>
+        <div class="form-group spinner hidden col-md-12">
+                <div class="spinner-border" style="margin-left:45%;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">update article</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(".ajaxForm").submit(function (e) {
+        $(".spinner").removeClass("hidden");
+        e.preventDefault();
+        var form = $(this);
+        //alert('here')
+        ajaxSubmit(e, form, showAllNews);
+    });
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html class="js" dir="ltr" prefix="og: https://ogp.me/ns#" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{>aaa_top_script}}
+    {{>back_top_scripts}}
+    <title>Orion | {{page}}</title>
+</head>
+
+<body data-layout="detached">
+            {{> b_navbar}}
+    <div class="container-fluid">
+        <div class="wrapper">
+            {{!-- {{>b_navbar}} --}}
+            <div class="content-page">
+                <div class="content content-main">
+                    <div class="loadings hidden"></div>
+                    
+                    {{{body}}}
+                </div>
+            </div>
+        </div>
+        {{> modals}}
+        {{> notify}}
+        {{>back_bottom_scripts}}
+        {{!-- {{>zz_bottom_scripts}} --}}
+
+        {{!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"
+            integrity="sha512-XFd1m0eHgU1F05yOmuzEklFHtiacLVbtdBufAyZwFR0zfcq7vc6iJuxerGPyVFOXlPGgM8Uhem9gwzMI8SJ5uw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+</body>
+
+</html>
