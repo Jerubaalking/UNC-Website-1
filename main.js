@@ -27,7 +27,7 @@ app.engine('hbs', engine({
 
 var port = process.env.PORT;
 
-// var settings = require('./backend/routes/settings-router.js'); 
+var settings = require('./backend/routes/settings.js'); 
 // var athletes = require('./backend/routes/athlete-router.js'); 
 // var news = require('./backend/routes/news-router.js'); 
 // var about = require('./backend/routes/about'); 
@@ -36,7 +36,7 @@ var port = process.env.PORT;
 var index = require('./backend/routes/index.js'); 
 
 
-// app.use('/settings', settings);
+app.use('/settings', settings);
 // app.use('/athletes', athletes);
 // app.use('/trending', news);
 // app.use('/about', about);
@@ -58,70 +58,13 @@ app.use('/', index);
 //     res.render("settings/news/list",{layout:false});
 // });
 
-app.post("/about/update", (req, res) => {
-    if(req.url == '/fileupload'){
-        var form = new formidable.IncomingForm();
-        form.parse(req, (err, field, files)=>{
-            console.log('File uploaded');
-            res.redirect('/settings');
-        });
-    }else{
-        res.redirect("/settings");
-    }
-
-});
-
-app.get("/home", (req, res) => {
-    res.render("index", { news: [1, 2, 3] });
-});
-
-app.get("/rankings", (req, res) => {
-    var k = [
-            walter=[{val:1},{val:2},{val:3}],
-            feather=[{val:1},{val:2},{val:3}],
-            feather=[{val:1},{val:2},{val:3}],
-            feather=[{val:1},{val:2},{val:3}]
-    ]
-    var t = JSON.stringify(k);
-    var y = JSON.parse(t);
-    console.log(y)
-    res.render("rankings", {rankings:y});
-});
-
-// app.get("/athletes", (req, res) => {
-//     var data = [1, 2, 3, 4, 5];
-//     res.render("athletes", { data: data, news: [1, 2, 3] });
-// });
-
-
-
-// app.get("/athlete", (req, res) => {
-//     res.render("athlete", { data: [1, 2, 3], news: [1, 2, 3] });
-// });
-app.get("/newsletter", (req, res) => {
-    res.render("newsletter");
-});
-
-// app.get("/trending/all", (req, res) => {
-//     res.render("news", { news: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
-// });
-
-
-
-app.get("/shop", (req, res) => {
-    res.render("shop", { data: [1, 2, 3] });
-});
-
-app.get("/watch", (req, res) => {
-    res.render("watch");
-});
 
 app.use(function(req, res, next) {
     res.status(404);
   
     // respond with html page
     if (req.accepts('html')) {
-      res.render('404', { url: req.url });
+      res.render('404', {layout:false, url: req.url });
       return;
     }
   

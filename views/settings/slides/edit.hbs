@@ -1,0 +1,33 @@
+<form method="POST" class="d-block ajaxForm" action="/settings/slides/{{Slides.id}}" enctype="multipart/form-data">
+    {{!-- {{user_id}} --}}<h4><i class="dripicons-plus"></i> Update slide</h4><hr>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" value="{{Slides.title}}" id="title" name="title" required>
+            <small id="titlelbl" class="form-text text-muted">example Diamond Jubilee Hall</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="imageUrl">Image</label>
+            <img src="{{Slides.imageUrl}}" alt="/public/images/logo.jpeg" style="width:250px; margin:5px;">
+            <div class="custom-file-upload">
+                <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="caption">caption</label>
+            <textarea class="form-control" id="caption" name="caption" style="height:20vh;">{{Slides.title}}</textarea>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">add slide</button>
+        </div>
+    </div>
+</form>
+
+<script>
+     $(".ajaxForm").submit(function(e) {
+        $(".spinner").removeClass("hidden");
+            e.preventDefault();
+            var form = $(this);
+            ajaxSubmit(e, form, "POST", showAllSlides);
+    });
+</script>

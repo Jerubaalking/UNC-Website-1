@@ -1,20 +1,11 @@
-<form method="POST" class="d-block ajaxForm" action="/settings/news/add" enctype="multipart/form-data">
+<form method="POST" class="d-block ajaxForm" action="/settings/news" enctype="multipart/form-data">
     {{!-- {{user_id}} --}}
+    <h4><i class="dripicons-plus"></i> Create news</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" name="title">
             <small id="titlelbl" class="form-text text-muted">title</small>
-        </div>
-        <div class="form-group col-md-12">
-            <label for="sub_title">Subtitle</label>
-            <input type="text" class="form-control" id="sub_title" name="sub_title">
-            <small id="sub_titlelbl" class="form-text text-muted">sub-title</small>
-        </div>
-
-        <div class="form-group col-md-12">
-            <label for="author">Author</label>
-            <input type="text" class="form-control" id="author" name="author">
         </div>
 
         <div class="form-group col-md-12">
@@ -22,10 +13,6 @@
             <div class="custom-file-upload">
                 <input type="file" class="form-control" id="imageUrl" name="imageUrl">
             </div>
-        </div>
-        <div class="form-group col-md-12">
-            <label for="details">details</label>
-            <textarea class="form-control" id="details" name="details" style="height:20vh;"></textarea>
         </div>
         <div class="form-group col-md-12">
             <label for="descriptions">description</label>
@@ -43,21 +30,10 @@
 </form>
 
 <script>
-    $(".ajaxForm").submit(function (e) {
+    $(".ajaxForm").submit(function(e) {
         $(".spinner").removeClass("hidden");
-        e.preventDefault();
-        var form = $(this);
-        //alert('here');
-        var data = {
-            title: $('#title').val(),
-            sub_title: $('#sub_title').val(),
-            author: $('#author').val(),
-            details: $('#details').val(),
-            description: $('#description').val(),
-            imageUrl: $('#imageUrl').val()
-        }
-
-        console.log(data);
-        ajaxSubmit(e, form, showAllNews);
+            e.preventDefault();
+            var form = $(this);
+            ajaxSubmit(e, form, "POST", showAllNews);
     });
 </script>

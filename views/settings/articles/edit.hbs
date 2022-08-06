@@ -1,0 +1,59 @@
+<form method="POST" class="d-block ajaxForm" action="/settings/articles/{{Articles.id}}" enctype="multipart/form-data">
+    {{!-- {{user_id}} --}}
+    <h4><i class="dripicons-plus"></i> Update Article</h4><hr>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="newsId">Article for news</label>
+            <select name="newsId" id="newsId" class="form-control select2" data-toggle="select2" required>
+                <option value="">select news</option>
+                {{#each News}}
+                {{#ifEquals ../Articles.news.id id}}
+                <option value="{{id}}" selected>{{title}}</option>
+                {{else}}
+                <option value="{{id}}">{{title}}</option>
+                {{/ifEquals}}
+                {{/each}}
+            </select>
+            <small id="newsIdlbl" class="form-text text-muted">Athlete 2</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" value="{{Articles.title}}" id="title" name="title" required>
+            <small id="titlelbl" class="form-text text-muted">title</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="caption">Caption</label>
+            <input type="text" class="form-control" value="{{Articles.caption}}" id="caption" name="caption" required>
+            <small id="captionlbl" class="form-text text-muted">caption</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" value="{{Articles.author}}" id="author" name="author" required>
+            <small id="authorlbl" class="form-text text-muted">Author</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="article">Article</label>
+            <textarea class="form-control" id="article" name="article" style="height:20vh;">{{Articles.article}}</textarea>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">update article</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('#newsId').select2({
+                dropdownParent: $('#right-modal')
+            });
+    });
+     $(".ajaxForm").submit(function(e) {
+        $(".spinner").removeClass("hidden");
+            e.preventDefault();
+            var form = $(this);
+            ajaxSubmit(e, form,"POST",showAllArticles);
+    });
+</script>

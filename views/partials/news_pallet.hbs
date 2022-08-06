@@ -1,0 +1,24 @@
+{{#each news}}
+<a href="/news/{{id}}" target="_blank"
+    rel="noopener noreferrer"
+    class="ContentListingCard-module--contentListingCard--14CEZ LatestNews-module--contentItem--1bYkm is-selected"
+    data-transition-index="0" data-testid="homepage-news-card-1" style="transform: translate(0px, 0px); opacity: 1;">
+    <div class="ContentListingCard-module--ieBannerWrapper--2fnW_"><span
+            class="ContentListingCard-module--ieBanner--1ldn3"
+            style="background-image:url(&quot;{{imageUrl}})"></span>
+    </div>
+    <picture class="ContentListingCard-module--cardBannerWrapper--Kg6iy" data-testid="homepage-news-card-1-image"><img
+            src="{{imageUrl}}?auto=webp&amp;disable=upscale&amp;width=390"
+            alt="Valorant Masters Copenhagen: Everything You Need To Know" width="1920" height="1080"
+            class="sc-pVTFL cZzoXH ContentListingCard-module--cardBanner--22oqu">
+    </picture>
+    <div class="copy-04 bold ContentListingCard-module--dateAndCategoryWrapper--11lk7">
+        <span class="ContentListingCard-module--date--3j2KS"
+            data-testid="homepage-news-card-1-date">{{longAgo createdAt}}</span><span
+            class="ContentListingCard-module--category--4ryop"
+            data-testid="homepage-news-card-1-category">{{author}}</span>
+    </div>
+    <h3 class="heading-05 bold ContentListingCard-module--title--1vIFy" data-testid="homepage-news-card-1-title">
+        {{title}}</h3>
+</a>
+{{/each}}

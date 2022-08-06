@@ -13,13 +13,13 @@
                 {{!-- <button onclick="showAllHeros()" class="btn btn-dark btn-secondary btn-rounded btn-block">Heros</button> --}}
                 {{!-- <button onclick="showAllRanks()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Ranks</button> --}}
                 <button onclick="showAllNews()" class="btn btn-dark btn-secondary btn-rounded btn-block">News</button>
-                <button onclick="showAllAthletes()" class="btn btn-dark btn-secondary btn-rounded btn-block">Athletes</button>
-                <button onclick="showAllEvents()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Events</button>
-                <button onclick="showAllFitness()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Fitness</button>
-                <button onclick="showAllAboutMMA()" class="btn btn-dark btn-secondary btn-rounded btn-block">About MMA</button>
-                <button onclick="showAllAboutTeam()" class="btn btn-dark btn-secondary btn-rounded btn-block">About Team</button>
-                <button onclick="showAllAboutSport()" class="btn btn-dark btn-secondary btn-rounded btn-block">About Sport</button>
-                <button onclick="showAllAboutOlympics()" class="btn btn-dark btn-secondary btn-rounded btn-block">About Olympics</button>
+                <button onclick="showAllServices()" class="btn btn-dark btn-secondary btn-rounded btn-block">Services</button>
+                <button onclick="showAllGames()" class="btn btn-dark btn-secondary btn-rounded btn-block">Games</button>
+                <button onclick="showAllServices()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Services</button>
+                <button onclick="showAllWarriors()" class="btn btn-dark btn-secondary btn-rounded btn-block">Warriors</button>
+                <button onclick="showAllArticles()"  class="btn btn-dark btn-secondary btn-rounded btn-block">Articles</button>
+                <button onclick="showAllAbout()" class="btn btn-dark btn-secondary btn-rounded btn-block">About</button>
+                <button onclick="showAllSlides()" class="btn btn-dark btn-secondary btn-rounded btn-block">Slides</button>
               </div>
               
               <div id="page_content" style="margin: 10px; float:left;" class="col-xl-9 col-lg-9 col-md-9 col-sm-9 page_content">
@@ -43,35 +43,12 @@
         //alert(response[0]['author']);
         $('.page_content').html('');
         $('.page_content').html(response);
+        initDataTable('basic-datatable');
       }
     });
   }
-  var showAllAboutMMA = function () {
-    var url = '/settings/about/mma';
-    $.ajax({
-      type: 'GET',
-      url: url,
-      success: function (response) {
-        //alert(response[0]['author']);
-        $('.page_content').html('');
-        $('.page_content').html(response);
-      }
-    });
-  }
-  var showAllAboutTeam = function () {
-    var url = '/settings/about/team';
-    $.ajax({
-      type: 'GET',
-      url: url,
-      success: function (response) {
-        //alert(response[0]['author']);
-        $('.page_content').html('');
-        $('.page_content').html(response);
-      }
-    });
-  }
-  var showAllAboutSport = function () {
-    var url = '/settings/about/sport';
+  var showAllGames = function () {
+    var url = '/settings/games/list';
     $.ajax({
       type: 'GET',
       url: url,
@@ -83,8 +60,8 @@
       }
     });
   }
-  var showAllAboutOlympics = function () {
-    var url = '/settings/about/olympics';
+  var showAllWarriors = function () {
+    var url = '/settings/products/list';
     $.ajax({
       type: 'GET',
       url: url,
@@ -96,8 +73,21 @@
       }
     });
   }
-  var showAllFitness = function () {
-    var url = '/settings/fitness/list';
+  var showAllSlides = function () {
+    var url = '/settings/slides/list';
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function (response) {
+        //alert(response[0]['author']);
+        $('.page_content').html('');
+        $('.page_content').html(response);
+        initDataTable('basic-datatable');
+      }
+    });
+  }
+  var showAllAbout = function () {
+    var url = '/settings/abouts/list';
     $.ajax({
       type: 'GET',
       url: url,
@@ -122,8 +112,8 @@
       }
     });
   }
-   var showAllEvents = function () {
-    var url = '/settings/events/list';
+   var showAllServices = function () {
+    var url = '/settings/services/list';
     $.ajax({
       type: 'GET',
       url: url,
@@ -148,8 +138,8 @@
       }
     });
   }
-  var showAllAthletes = function () {
-    var url = '/settings/athletes/list';
+  var showAllGroups = function () {
+    var url = '/settings/groups/list';
     $.ajax({
       type: 'GET',
       url: url,
@@ -161,6 +151,6 @@
       }
     });
   }
-  // Show All The Events
+  // Show All The Services
   showNews();
 </script>

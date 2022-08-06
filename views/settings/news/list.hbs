@@ -1,6 +1,6 @@
 <div class="card" style="top:0;margin-top:0px;">
   <div class="card-body">
-    <h4 class="header-title">News
+    <h4 class="header-title">News 
       <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal('settings/news/create', 'add news')"> <i class="mdi mdi-plus"></i>Add News</button>
     </h4>
     <br><br>
@@ -12,31 +12,28 @@
       <table id="basic-datatable" class="table table-striped dt-responsive" width="100%">
         <thead>
           <tr style="background-color: #313a46; color: #ababab;">
+            <th>Image</th>
             <th>title</th>
-            <th>sub-title</th>
             <th>description</th>
-            <th>details</th>
             <th>options</th>
           </tr>
         </thead>
         <tbody>
           {{#each news}}
             <tr>
+              <td><img src="{{imageUrl}}" style="width: 2vw; border-radius:100%; border:0px solid #fdfeff;"/></td>
               <td>{{title}}</td>
-              <td>{{sub_title}}</td>
               <td>{{description}}</td>
-              <td>{{details}}</td>
               <td>
               <div class="dropdown text-center">
       					<button type="button" class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
       					<div class="dropdown-menu dropdown-menu-right">
       						<!-- item-->
-      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/news/edit/{{id}}', 'update news');">edit</a>
-      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/articles/create/{{id}}', 'add article');">add articles</a>
-                  <!-- item-->
-      						<a href="javascript:void(0);" class="dropdown-item"  onclick="largeModal('/settings/articles/list/{{id}}', '{{title}} Articles')">Articles</a>
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/news/{{id}}', 'update news');">edit</a>
       						<!-- item-->
-      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/news/remove/{{id}}', showAllNews )">delete</a>
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/news/trash/{{id}}', showAllNews )">trash</a>
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/news/{{id}}', showAllNews )">delete</a>
       					</div>
               </td>
             </tr>

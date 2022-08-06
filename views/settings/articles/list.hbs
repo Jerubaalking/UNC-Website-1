@@ -1,7 +1,7 @@
 <div class="card" style="margin-top:0px;">
   <div class="card-body">
     <h4 class="header-title">Articles
-      <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal('settings/events/create', 'add events')"> <i class="mdi mdi-plus"></i>Add Event</button>
+      <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal('settings/articles/create', 'add articles')"> <i class="mdi mdi-plus"></i>Add Article</button>
     </h4>
     <br><br>
     <div class="alert alert-warning" role="alert">
@@ -12,7 +12,9 @@
       <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
         <thead>
           <tr style="background-color: #313a46; color: #ababab;">
-            <th>Heading</th>
+            <th>Title</th>
+            <th>Caption</th>
+            <th>Author</th>
             <th>Article</th>
             <th>options</th>
           </tr>
@@ -20,14 +22,18 @@
         <tbody>
           {{#each articles}}
             <tr>
-              <td>{{heading}}</td>
+              <td>{{title}}</td>
+              <td>{{caption}}</td>
+              <td>{{author}}</td>
               <td>{{article}}</td>
               <td>
               <div class="dropdown text-center">
       					<button type="button" class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
       					<div class="dropdown-menu dropdown-menu-right">
       						<!-- item-->
-      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/articles/edit/{{id}}', 'update articles');">edit</a>
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/articles/{{id}}', 'update articles');">edit</a>
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/articles/trash/{{id}}', showAllArticles )">trash</a>
       						<!-- item-->
       						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/articles/remove/{{id}}', showAllArticles )">delete</a>
       					</div>

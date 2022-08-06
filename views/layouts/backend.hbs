@@ -7,13 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {{>aaa_top_script}}
-    {{>back_top_scripts}}
-    <title>Orion | {{page}}</title>
+    {{>head}}
+    {{> b_head}}
+    <title>Uncaptured | {{page}}</title>
 </head>
 
 <body data-layout="detached">
-            {{> b_navbar}}
+    <div style="margin-top: -10px;">
+        {{> b_header}}
+    </div>
     <div class="container-fluid">
         <div class="wrapper">
             {{!-- {{>b_navbar}} --}}
@@ -25,9 +27,9 @@
                 </div>
             </div>
         </div>
+        {{>b_bottom_scripts}}
         {{> modals}}
         {{> notify}}
-        {{>back_bottom_scripts}}
         {{!-- {{>zz_bottom_scripts}} --}}
 
         {{!--

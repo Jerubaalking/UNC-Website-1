@@ -28,8 +28,33 @@ var register = function(Handlebars) {
                     return options.inverse(this);
                 }
             },
+            isEven :function(arg1, options){
+                return ((arg1 % 2) == 0)? options.fn(this) : options.inverse(this);
+            },
+
+            lastId :function(object){
+                return (typeof object == 'object') ? object[object.length-1].id : typeof object;
+            },
+            firstId:function(object){
+                return (typeof object == 'object') ? object[0].id : typeof object;
+            },
+            notEven :function(arg1, options){
+                return ((arg1 % 2) == 1)? options.fn(this) : options.inverse(this);
+            },
             ifEquals:function(arg1, arg2, options) {
                 return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+            },
+            ifLess:function(arg1, arg2, options) {
+                return (arg1 < arg2) ? options.fn(this) : options.inverse(this);
+            },
+            ifLessEquals:function(arg1, arg2, options) {
+                return (arg1 <= arg2) ? options.fn(this) : options.inverse(this);
+            },
+            ifGreatEquals:function(arg1, arg2, options) {
+                return (arg1 >= arg2) ? options.fn(this) : options.inverse(this);
+            },
+            ifGreat:function(arg1, arg2, options) {
+                return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
             },
             // includes: function(arg1, arg1) {
             //     arg1.forEach(arg =>{

@@ -1,0 +1,66 @@
+
+<form method="POST" class="d-block ajaxForm" action="/settings/abouts/{{Abouts.id}}" enctype="multipart/form-data" >
+    <h4><i class="dripicons-plus"></i>  Update about</h4><hr>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="groupId">About of Group..?</label>
+            <select name="groupId" id="groupId" class="form-control select2" data-toggle="select2" required>
+                <option value="">select group</option>
+                {{#each Groups}}
+                {{#ifEquals id ../Abouts.group.id}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{else}}
+                <option value="{{id}}">{{name}}</option>
+                {{/ifEquals}}
+                {{/each}}
+            </select>
+            <small id="groupIdlbl" class="form-text text-muted">Group</small>
+        </div>
+        <div class="form-group col-md-12">
+        <label for="email">Email *</label>
+            <input type="email" class="form-control" id="email" value="{{Abouts.email}}" name="email" placeholder="example@abc.com" required>
+        <small id="emaillbl"  class="form-text text-muted">email</small>
+        </div>
+        <div class="form-group col-md-12">
+        <label for="website">Website </label>
+            <input type="text" class="form-control" id="website" value="{{Abouts.website}}" name="website" placeholder="www.example.com" >
+        <small id="websitelbl"  class="form-text text-muted">website</small>
+        </div>
+        <div class="form-group col-md-12">
+        <label for="phone">Phone *</label>
+            <textarea class="form-control" id="phone" name="phone" placeholder="phone here... " style="height:20vh;" required>{{Abouts.phone}}</textarea>
+        <small id="phonelbl"  class="form-text text-muted">phone</small>
+        </div>
+        <div class="form-group col-md-12">
+        <label for="address">Address *</label>
+            <textarea class="form-control" id="address" name="address" placeholder="address here... " style="height:20vh;" required>{{Abouts.address}}</textarea>
+        <small id="addresslbl"  class= "form-text text-muted">address</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="about">About Details</label>
+            <textarea class="form-control" id="about" name="about" placeholder="Description here..." style="height:30vh;">{{Abouts.about}}</textarea>
+        </div>
+        <div class="form-group spinner hidden col-md-12">
+        <div class="spinner-border" style="margin-left:45%;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">update about</button>
+        </div>
+    </div>
+</form>
+<script>
+     $(document).ready(function() {
+        $('#groupId').select2({
+                dropdownParent: $('#right-modal')
+            });
+    });
+     $(".ajaxForm").submit(function(e) {
+        $(".spinner").removeClass("hidden");
+            e.preventDefault();
+            var form = $(this);
+            ajaxSubmit(e, form,"POST", showAllAbout);
+    });
+</script>
+

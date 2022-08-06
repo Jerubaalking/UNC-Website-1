@@ -1,0 +1,43 @@
+<div class="card" style="margin-top:0px;">
+  <div class="card-body">
+    <h4 class="header-title">Slides
+      <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal('settings/slides/create', 'add slides')"> <i class="mdi mdi-plus"></i>Add Slide</button>
+    </h4>
+    <br><br>
+    <div class="alert alert-warning" role="alert">
+      <i class="dripicons-information mr-2"></i>Slides</strong>.
+    </div>
+
+<div class="table-responsive-sm">
+      <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+        <thead>
+          <tr style="background-color: #313a46; color: #ababab;">
+            <th>Image</th>
+            <th>Title</th>
+            <th>caption</th>
+            <th>options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each slides}}
+            <tr>
+              <td><img src="{{imageUrl}}" style="width: 6vw; border-radius:100%; border:2px solid #fdfeff;"></td>
+              <td>{{title}}</td>
+              <td>{{caption}}</td>
+              <td>
+              <div class="dropdown text-center">
+      					<button type="button" class="btn btn-sm btn-icon btn-rounded btn-outline-secondary dropdown-btn dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-vertical"></i></button>
+      					<div class="dropdown-menu dropdown-menu-right">
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/slides/{{id}}', 'update slides');">edit</a>
+      						<!-- item-->
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/slides/{{id}}', showAllSlides )">delete</a>
+      					</div>
+              </td>
+            </tr>
+            {{/each}}
+        </tbody>
+      </table>
+      </div>
+  </div> <!-- end card body-->
+</div>

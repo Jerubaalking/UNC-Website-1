@@ -1,59 +1,40 @@
-
-<form method="POST" class="d-block ajaxForm" action="/settings/news/update" enctype="multipart/form-data" >
-{{!-- {{user_id}} --}}
-{{#each newsz}}
+<form method="POST" class="d-block ajaxForm" action="/settings/news/{{News.id}}" enctype="multipart/form-data">
+    {{!-- {{user_id}} --}}
+    <h4><i class="dripicons-plus"></i> Edit News</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
-        <label for="title">Title</label>
-        <input type="hidden" id="id" name="id" value="{{id}}">
-            <input type="text" value="{{title}}" class="form-control" id="title" name ="title" required>
-        <small id="titlelbl"  class="form-text text-muted">title</small>
-        </div>
-         <div class="form-group col-md-12">
-        <label for="sub_title">Subtitle</label>
-            <input type="text" value="{{sub_title}}" class="form-control" id="sub_title" name ="sub_title" required>
-        <small id="sub_titlelbl" class="form-text text-muted">sub-title</small>
-        </div>
-        
-        <div class="form-group col-md-12">
-            <label for="author">Author</label>
-            <input type="text" value="{{author}}" class="form-control" id="author" name ="author" required>
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" value="{{News.title}}" name="title">
+            <small id="titlelbl" class="form-text text-muted">title</small>
         </div>
 
-    <div class="form-group col-md-12">
-        <img src="{{imageUrl}}" width="200vw" style="margin-bottom: 10px;">
-        <label for="imageUrl">Image</label>
-        <div class="custom-file-upload">
-            <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
-        </div>
-    </div>
-
         <div class="form-group col-md-12">
-            <label for="details">details</label>
-            <textarea class="form-control" id="details" name ="details" style="height:20vh;">{{details}}</textarea>
+            <label for="imageUrl">Image</label>
+            <img src="{{News.imageUrl}}" alt="/public/images/logo.jpeg" style="width:250px; margin:5px;">
+            <div class="custom-file-upload">
+                <input type="file" class="form-control" id="imageUrl" name="imageUrl">
+            </div>
         </div>
         <div class="form-group col-md-12">
-            <label for="description">descriptions</label>
-            <textarea class="form-control" id="description" name ="description" style="height:20vh;">{{description}}</textarea>
+            <label for="descriptions">description</label>
+            <textarea class="form-control" id="description" name="description" placeholder="description" style="height:20vh;">{{News.description}}</textarea>
         </div>
-
         <div class="form-group spinner hidden col-md-12">
-        <div class="spinner-border" style="margin-left:45%;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+                <div class="spinner-border" style="margin-left:45%;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
         </div>
         <div class="form-group  col-md-12">
             <button class="btn btn-block btn-primary" type="submit">update news</button>
         </div>
     </div>
-    {{/each}}
 </form>
+
 <script>
-     $(".ajaxForm").submit(function(e) {
+    $(".ajaxForm").submit(function(e) {
         $(".spinner").removeClass("hidden");
             e.preventDefault();
             var form = $(this);
-        ajaxSubmit(e, form, showAllNews);
+            ajaxSubmit(e, form,"POST",showAllNews);
     });
 </script>
-
