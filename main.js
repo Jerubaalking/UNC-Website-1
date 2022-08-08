@@ -77,7 +77,7 @@ app.use(function(req, res, next) {
     // default to plain-text. send()
     res.type('txt').send('Not found');
   });
-proccess(app, port);
-// http.createServer(app).listen(port, () => {
-//     console.log("listening at port: ", port);
-// });
+// proccess(app, port);
+http.createServer(app).listen(port, () => {
+    console.log("listening at port: ", port);
+});
