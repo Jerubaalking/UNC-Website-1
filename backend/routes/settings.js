@@ -14,13 +14,13 @@ router.post('/news/:id', upload.single('imageUrl'), route.settings);
 router.delete('/news/:id', route.settings);
 router.delete('/news/trash/:id', route.settings);
 
-router.get('/groups/list', route.settings);
-router.get('/groups/create', route.settings);
-router.get('/groups/:id', route.settings);
-router.post('/groups/:id', upload.single('logo'), route.settings);
-router.post('/groups', upload.single('logo'), route.settings);
-router.delete('/groups/:id', route.settings);
-router.delete('/groups/trash/:id', route.settings);
+router.get('/companies/list', route.settings);
+router.get('/companies/create', route.settings);
+router.get('/companies/:id', route.settings);
+router.post('/companies/:id', upload.single('logo'), route.settings);
+router.post('/companies', upload.single('logo'), route.settings);
+router.delete('/companies/:id', route.settings);
+router.delete('/companies/trash/:id', route.settings);
 
 
 router.get('/services/list', route.settings);
@@ -50,13 +50,13 @@ router.delete('/abouts/:id', route.settings);
 router.delete('/abouts/trash/:id', route.settings);
 
 
-router.get('/portfolios/list', route.settings);
-router.get('/portfolios/create', route.settings);
-router.get('/portfolios/:id', route.settings);
-router.post('/portfolios/:id',upload.none(), route.settings);
-router.post('/portfolios',upload.none(), route.settings);
-router.delete('/portfolios/:id', route.settings);
-router.delete('/portfolios/trash/:id', route.settings);
+router.get('/games/list', route.settings);
+router.get('/games/create', route.settings);
+router.get('/games/:id', route.settings);
+router.post('/games/:id',upload.single('imageUrl'), route.settings);
+router.post('/games', upload.single('imageUrl'), route.settings);
+router.delete('/games/:id', route.settings);
+router.delete('/games/trash/:id', route.settings);
 
 
 router.get('/subscribers/list', route.settings);
@@ -77,13 +77,13 @@ router.delete('/slides/:id', route.settings);
 router.delete('/slides/trash/:id', route.settings);
 
 
-router.get('/products/list', route.settings);
-router.get('/products/create', route.settings);
-router.get('/products/:id', route.settings);
-router.post('/products/:id',upload.single('imageUrl'), route.settings);
-router.post('/products',upload.single('imageUrl'), route.settings);
-router.delete('/products/:id', route.settings);
-router.delete('/products/trash/:id', route.settings);
+router.get('/warriors/list', route.settings);
+router.get('/warriors/create', route.settings);
+router.get('/warriors/:id', route.settings);
+router.post('/warriors/:id',upload.single('imageUrl'), route.settings);
+router.post('/warriors',upload.single('imageUrl'), route.settings);
+router.delete('/warriors/:id', route.settings);
+router.get('/warriors/trasher', route.settings);
 
 
 

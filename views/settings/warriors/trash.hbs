@@ -1,11 +1,4 @@
-<div class="card" style="margin-top:0px;">
-  <div class="card-body">
-    <h4 class="header-title">Warriors
-      <button type="button" class="btn btn-outline-primary btn-rounded alignToTitle" onclick="rightModal('settings/warriors/create', 'add Warriors')"> <i class="mdi mdi-plus"></i>Add Warrior</button>
-     
-    </h4>
-    <br><br>
-<div class="table-responsive-sm">
+
       <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
         <thead>
           <tr style="background-color: #313a46; color: #ababab;">
@@ -28,13 +21,10 @@
       						<!-- item-->
       						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/warriors/{{id}}', 'update warriors');">edit</a>
       						<!-- item-->
-      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/warriors/{{id}}', showAllWarriors )">delete</a>
+      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/warriors/remove/{{id}}', showAllWarriors )">delete</a>
       					</div>
               </td>
             </tr>
             {{/each}}
         </tbody>
       </table>
-      </div>
-  </div> <!-- end card body-->
-</div>

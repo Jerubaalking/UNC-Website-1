@@ -8,35 +8,30 @@ module.exports = {
      */
     create: async (model) => {
         try {
-            var models = new _DB(model);
-            console.log("create service: ", model);
-            var data = await models.findWithRelatives();
-            var u = new Object();
+            let models = await new _DB(model);
+            let data = await models.findWithRelatives();
+            let relatives = await models.relatives();
+            data = JSON.parse(JSON.stringify(data));
+            let u = new Object();
             u.layout = false;
-            if(data != undefined){
-                if(data.length>0){
-                    data = JSON.parse(JSON.stringify(data));
-                    var helps = await helper.create(data);
-                    console.log("helps::", helps);
-                    if (helps != undefined) {
-                        for (let i = 0; i < helps.length; i++) {
-                            let db = new _DB(helps[i]);
-                            u[helps[i]] = JSON.parse(JSON.stringify(await db.find()));
-                        };
-                    }
-                }else{
-                    data = await models.relatives();
-                    console.log("relatives",data);
-                    for(var d = 0; d<data.length;d++){
-                        console.log("D::",JSON.stringify(data[d]).split(':')[0]);
-                        var db1 = new _DB(data[d]);
-                        u[data[d].toString().split(':')[0]] = JSON.parse(JSON.stringify(await db1.find()));
+            u[model] = data;
+            if(relatives.length<=0){
+                console.log("data at serve", u);
+                return u;
+            }else{
+                let helps = relatives;
+                console.log("helps::", helps);
+                if (helps != undefined && helps.length >0) {
+                    for (let i = 0; i < helps.length; i++) {
+                        let db = new _DB(helps[i]);
+                        u[helps[i]] = JSON.parse(JSON.stringify(await db.find()));
                     };
-                    console.log("model", data);
+                    console.log("data at serve", u);
+                    return u;
+                }else{
+                    return u;
                 }
             }
-            console.log("U value::",u);
-            return u;
             
         } catch (err) {
             console.log("ERRor:", err);
@@ -47,28 +42,34 @@ module.exports = {
      */
      edit: async (model, id) => {
         try {
-
-            var models = new _DB(model);
-            var data = await models.idFindWithRelative(id);
+            let models = await new _DB(model);
+            let data = await models.idFindWithRelative(id);
+            let relatives = await models.relatives();
             data = JSON.parse(JSON.stringify(data));
-            var u = new Object();
+            let u = new Object();
             u.layout = false;
             u[model] = data;
-            var helps = await helper.edit(data);
-            console.log("helps::", helps);
-            if (helps != undefined) {
-                for (let i = 0; i < helps.length; i++) {
-                    let db = new _DB(helps[i]);
-                    u[helps[i]] = JSON.parse(JSON.stringify(await db.find()));
-                };
+            if(relatives.length<=0){
                 console.log("data at serve", u);
                 return u;
             }else{
-                return u;
+                let helps = relatives;
+                console.log("helps::", helps);
+                if (helps != undefined && helps.length >0) {
+                    for (let i = 0; i < helps.length; i++) {
+                        let db = new _DB(helps[i]);
+                        u[helps[i]] = JSON.parse(JSON.stringify(await db.find()));
+                    };
+                    console.log("data at serve", u);
+                    return u;
+                }else{
+                    return u;
+                }
             }
+            
         } catch (err) {
             console.log("ERRor:", err);
         }
-    }
+    },
 
 }

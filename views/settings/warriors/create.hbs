@@ -1,6 +1,6 @@
 
-<form method="POST" class="d-block ajaxForm" action="/settings/products" enctype="multipart/form-data" >
-    <h4><i class="dripicons-plus"></i> Create product</h4><hr>
+<form method="POST" class="d-block ajaxForm" action="/settings/warriors" enctype="multipart/form-data" >
+    <h4><i class="dripicons-plus"></i> Create warrior</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
         <label for="name">Name *</label>
@@ -8,10 +8,10 @@
         <small id="namelbl"  class="form-text text-muted">name</small>
         </div>
          <div class="form-group col-md-12">
-            <label for="serviceId">Select Service</label>
-            <select name="serviceId" class="form-control" id="serviceId">
-                <option value="">select Service</option>
-                {{#each Services}}
+            <label for="gameId">Select Games</label>
+            <select name="gameId" class="form-control" id="gameId">
+                <option value="">select Games</option>
+                {{#each Games}}
                 <option value="{{id}}">{{name}}</option>
                 {{/each}}
             </select>
@@ -20,12 +20,6 @@
             <label for="imageUrl">Image</label>
             <div class="custom-file-upload">
                 <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
-            </div>
-        </div>
-        <div class="form-group col-md-12">
-            <label for="details">Details</label>
-            <div class="custom-file-upload">
-                <textarea class="form-control" id="details" name = "details" style="height: 20vh;"></textarea>
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -40,13 +34,13 @@
         </div>
         </div>
         <div class="form-group  col-md-12">
-            <button class="btn btn-block btn-primary" type="submit">add product</button>
+            <button class="btn btn-block btn-primary" type="submit">add warrior</button>
         </div>
     </div>
 </form>
 <script>
     $(document).ready(function() {
-        $('#serviceId').select2({
+        $('#gameId').select2({
                 dropdownParent: $('#right-modal')
             });
     });
@@ -54,7 +48,7 @@
         $(".spinner").removeClass("hidden");
             e.preventDefault();
             var form = $(this);
-            ajaxSubmit(e, form,"POST", showAllProducts);
+            ajaxSubmit(e, form,"POST", showAllWarriors);
     });
 </script>
 

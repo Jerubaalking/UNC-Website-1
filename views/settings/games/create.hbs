@@ -1,6 +1,6 @@
 
-<form method="POST" class="d-block ajaxForm" action="/settings/companies" enctype="multipart/form-data" >
-    <h4><i class="dripicons-plus"></i>  Create Company</h4><hr>
+<form method="POST" class="d-block ajaxForm" action="/settings/games" enctype="multipart/form-data" >
+    <h4><i class="dripicons-plus"></i>  Create Game</h4><hr>
     <div class="form-row">
         <div class="form-company col-md-12">
         <label for="name">Name *</label>
@@ -8,13 +8,17 @@
         <small id="namelbl"  class="form-text text-muted">name</small>
         </div>
         <div class="form-company col-md-12">
-            <label for="logo">Logo</label>
+            <label for="imageUrl">Image</label>
             <div class="custom-file-upload">
-                <input type="file" class="form-control" id="logo" name = "logo">
+                <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
             </div>
         </div>
         <div class="form-company col-md-12">
-            <label for="description">About Details</label>
+            <label for="details">Details</label>
+            <textarea class="form-control" id="details"  name="details" placeholder="Details here..." style="height:30vh;"></textarea>
+        </div>
+        <div class="form-company col-md-12">
+            <label for="description">Descriptions</label>
             <textarea class="form-control" id="description"  name="description" placeholder="Description here..." style="height:50vh;"></textarea>
         </div>
         <div class="form-company spinner hidden col-md-12">
@@ -23,7 +27,7 @@
         </div>
         </div>
         <div class="form-company  col-md-12">
-            <button class="btn btn-block btn-primary" type="submit">add company</button>
+            <button class="btn btn-block btn-primary" type="submit">add game</button>
         </div>
     </div>
 </form>
@@ -32,7 +36,7 @@
         $(".spinner").removeClass("hidden");
             e.preventDefault();
             var form = $(this);
-            ajaxSubmit(e, form,"POST", showAllCompanies);
+            ajaxSubmit(e, form,"POST", showAllGames);
     });
 </script>
 

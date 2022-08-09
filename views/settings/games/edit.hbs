@@ -1,0 +1,43 @@
+
+<form method="POST" class="d-block ajaxForm" action="/settings/games/{{Games.id}}" enctype="multipart/form-data" >
+    <h4><i class="dripicons-plus"></i>  Update business Game</h4><hr>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+        <label for="name">Name *</label>
+            <input type="text" class="form-control" id="name" name ="name" value="{{Games.name}}" required>
+        <small id="namelbl"  class="form-text text-muted">name</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="imageUrl">Image</label>
+            <img src="{{Games.imageUrl}}" alt="/public/images/logo.jpeg" style="width:250px; margin:5px;">
+            <div class="custom-file-upload">
+                <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="details">About Details</label>
+            <textarea class="form-control" id="details"  name="details" placeholder="Details here..." style="height:60vh;">{{Games.details}}</textarea>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="description">About Details</label>
+            <textarea class="form-control" id="description"  name="description" placeholder="Description here..." style="height:60vh;">{{Games.description}}</textarea>
+        </div>
+        <div class="form-group spinner hidden col-md-12">
+        <div class="spinner-border" style="margin-left:45%;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        </div>
+        <div class="form-group  col-md-12">
+            <button class="btn btn-block btn-primary" type="submit">update game</button>
+        </div>
+    </div>
+</form>
+<script>
+     $(".ajaxForm").submit(function(e) {
+        $(".spinner").removeClass("hidden");
+            e.preventDefault();
+            var form = $(this);
+            ajaxSubmit(e, form,"POST", showAllGames);
+    });
+</script>
+

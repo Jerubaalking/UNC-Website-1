@@ -1,18 +1,18 @@
 
-<form method="POST" class="d-block ajaxForm" action="/settings/products/{{Products.id}}" enctype="multipart/form-data" >
+<form method="POST" class="d-block ajaxForm" action="/settings/warriors/{{Warriors.id}}" enctype="multipart/form-data" >
     <h4><i class="dripicons-plus"></i> Create product</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
         <label for="name">Name *</label>
-            <input type="text" class="form-control" id="name" value="{{Products.name}}" name ="name" required>
+            <input type="text" class="form-control" id="name" value="{{Warriors.name}}" name ="name" required>
         <small id="namelbl"  class="form-text text-muted">name</small>
         </div>
          <div class="form-group col-md-12">
-            <label for="serviceId">Select Service</label>
-            <select name="serviceId" class="form-control" id="serviceId">
-                <option value="">select Service</option>
-                {{#each Services}}
-                {{#ifEquals id ../Products.serviceId}}
+            <label for="gameId">Select Game</label>
+            <select name="gameId" class="form-control" id="gameId">
+                <option value="">select Game</option>
+                {{#each Games}}
+                {{#ifEquals id ../Warriors.gameId}}
                 <option value="{{id}}" selected>{{name}}</option>
                 {{else}}
                 <option value="{{id}}">{{name}}</option>
@@ -22,21 +22,15 @@
         </div>
         <div class="form-group col-md-12">
             <label for="imageUrl">Image</label>
-            <img src="{{Products.imageUrl}}" alt="{{Products.imageUrl}}" style="width:250px; margin:5px;">
+            <img src="{{Warriors.imageUrl}}" alt="{{Warriors.imageUrl}}" style="width:250px; margin:5px;">
             <div class="custom-file-upload">
                 <input type="file" class="form-control" id="imageUrl" name = "imageUrl">
             </div>
         </div>
         <div class="form-group col-md-12">
-            <label for="details">Details</label>
-            <div class="custom-file-upload">
-                <textarea class="form-control" id="details" name = "details" style="height: 20vh;">{{Products.details}}</textarea>
-            </div>
-        </div>
-        <div class="form-group col-md-12">
             <label for="description">Descriptions</label>
             <div class="custom-file-upload">
-                <textarea class="form-control" id="description" name = "description" style="height: 35vh;">{{Products.description}}</textarea>
+                <textarea class="form-control" id="description" name = "description" style="height: 35vh;">{{Warriors.description}}</textarea>
             </div>
         </div>
         <div class="form-group spinner hidden col-md-12">
@@ -51,15 +45,15 @@
 </form>
 <script>
     $(document).ready(function() {
-        $('#serviceId').select2({
+        $('#gameId').select2({
                 dropdownParent: $('#right-modal')
             });
     });
      $(".ajaxForm").submit(function(e) {
         $(".spinner").removeClass("hidden");
             e.preventDefault();
-            var form = $(this);
-            ajaxSubmit(e, form,"POST", showAllProducts);
+            let form = $(this);
+            ajaxSubmit(e, form,"POST", showAllWarriors);
     });
 </script>
 

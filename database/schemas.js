@@ -1,6 +1,14 @@
 const { DataTypes } = require('sequelize');
 const { sequelize, Model } = require('./db.js');
 
+class Notice {
+  constructor(status = new Boolean(), notification = new String(), data) {
+    this.status = status;
+    this.notification = notification;
+    this.data = data;
+  }
+}
+
 class _DB {
   constructor(table) {
     this.table = table;
@@ -91,10 +99,10 @@ class _DB {
   }
 
   async findWithRelatives() {
-    let { Companies, Services,BattlePasses, Abouts, Slides, News, Articles, Games, Subscribers, Seasons } = await this._model();
+    let { Companies, Services, Warriors, BattlePasses, Abouts, Slides, News, Articles, Games, Subscribers, Seasons } = await this._model();
     switch (this.table) {
       case "Companies":
-        return await Companies.findAll({ include: { model: Services }, include: { model: BattlePasses } });
+        return await Companies.findAll({ include: { model: Services }});
       case "Services":
         return await Services.findAll({ include: { model: Games }, include: { model: Companies }});
       case "News":
@@ -102,13 +110,15 @@ class _DB {
       case "Slides":
         return await Slides.findAll();
       case "Articles":
-        return await Articles.findAll({ include: { model: News } });
-        case "BattlePasses":
-          return await BattlePasses.findAll({ include: { model: Companies } });
+      return await Articles.findAll({ include: { all: true, nested: true }});
+      case "BattlePasses":
+        return await BattlePasses.findAll({ include: { all: true, nested: true } });
+      case "Warriors":
+        return await Warriors.findAll({ include: { all: true, nested: true }});
       case "Abouts":
-        return await Abouts.findAll({ include: { model: Companies } });
+        return await Abouts.findAll({ include: { all: true, nested: true } });
       case "Games":
-        return await Games.findAll({ include: { model: Services } });
+        return await Games.findAll({ include: { all: true, nested: true }});
       case "Subscribers":
         return await Subscribers.findAll();
       case "Slides":
@@ -119,10 +129,10 @@ class _DB {
   }
 
   async idFindWithRelative(id = new Number()) {
-    let { Companies, Services, BattlePasses,News, Slides, Abouts, Games, Articles, Subscribers, Seasons } = await this._model();
+    let { Companies, Services,Warriors, BattlePasses,News, Slides, Abouts, Games, Articles, Subscribers, Seasons } = await this._model();
     switch (this.table) {
       case "Companies":
-        return await Companies.findOne({ where: { id: id }, include: { model: Services } });
+        return await Companies.findOne({ where: { id: id }, include: { all: true, nested: true }});
       case "Services":
         return await Services.findOne({ where: { id: id },include: { all: true, nested: true }});
       case "News":
@@ -133,6 +143,8 @@ class _DB {
           return await BattlePasses.findOne({ where: { id: id }, include: { all: true, nested: true } });
       case "Abouts":
         return await Abouts.findOne({ where: { id: id }, include: { all: true, nested: true } });
+      case "Warriors":
+        return await Warriors.findOne({ where: { id: id }, include: { all: true, nested: true } });
       case "Games":
         return await Games.findOne({ where: { id: id }, include: { all: true, nested: true } });
       case "Slides":
@@ -144,7 +156,7 @@ class _DB {
     }
   }
   async relatives() {
-    let { Companies, Services,BattlePasses, Slides, News, Articles, Subscribers, Seasons } = await this._model();
+    // let { Companies, Services,BattlePasses, Slides, News, Articles, Subscribers, Seasons } = await this._model();
     switch (this.table) {
       case "Companies":
         return ["Services"];
@@ -154,6 +166,8 @@ class _DB {
         return ["Companies", "Articles"];
       case "Articles":
         return ["News"];
+      case "Warriors":
+        return ["Games"];
       case "Games":
         return ["Services"];
       case "Abouts":
@@ -170,7 +184,7 @@ class _DB {
   }
 
   async create(data) {
-    let { Companies, Services,BattlePasses, Games, Slides, Abouts, News, Articles, Subscribers, Seasons } = await this._model();
+    let { Companies, Services,Warriors, BattlePasses, Games, Slides, Abouts, News, Articles, Subscribers, Seasons } = await this._model();
     switch (this.table) {
       case "Companies":
         try {
@@ -223,6 +237,13 @@ class _DB {
         } catch (err) {
           return err;
         }
+      case "Warriors":
+        try {
+          let products = await Warriors.build(data);
+          return await products.save();
+        } catch (err) {
+          return err;
+        }
       case "Slides":
         try {
           let slides = await Slides.build(data);
@@ -244,10 +265,12 @@ class _DB {
     }
   }
   async update(id, data) {
-    let { Companies, Services,BattlePasses, Abouts, News, Articles, Subscribers, Slides } = await this._model();
+    let { Companies,Games, Services,BattlePasses, Abouts, News, Articles, Subscribers, Slides } = await this._model();
     switch (this.table) {
       case "Companies":
         return await Companies.update(data, { where: { id: id } });
+        case "Games":
+          return await Games.update(data, { where: { id: id } });
       case "Services":
         return await Services.update(data, { where: { id: id } });
       case "News":
@@ -316,24 +339,89 @@ class _DB {
     }
   }
   async delete(id = new Number()) {
-    let { Companies, Services,BattlePasses, News, Abouts, Articles, Subscribers, Slides } = await this._model();
+    let { Companies, Services,Warriors, BattlePasses, News, Abouts, Articles, Subscribers, Slides } = await this._model();
     switch (this.table) {
       case "Companies":
-        return await Companies.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await Companies.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
       case "Services":
-        return await Services.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await Services.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
         case "BattlePasses":
-          return await BattlePasses.destroy({ where: { id: id } }, { paranoid: false });
+          try{
+            await BattlePasses.destroy({ where: { id: id } }, { force: true });
+            let note = new Notice(true, `Item parmanently deleted!`);
+            return note;
+          }catch(err){
+            let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+            return note;
+          }
       case "News":
-        return await News.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await News.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
       case "Articles":
-        return await Articles.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await Articles.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
+      case "Warriors":
+        try{
+          await Warriors.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
       case "Abouts":
-        return await Abouts.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await Abouts.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
       case "Subscribers":
-        return await Subscribers.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await Subscribers.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
       case "Slides":
-        return await Slides.destroy({ where: { id: id } }, { paranoid: false });
+        try{
+          await Slides.destroy({ where: { id: id } }, { force: true });
+          let note = new Notice(true, `Item parmanently deleted!`);
+          return note;
+        }catch(err){
+          let note = new Notice(false, `failed to delete ${this.table} item!`, err);
+          return note;
+        }
       default:
         break;
     }
@@ -530,12 +618,14 @@ class _DB {
     await News.belongsTo(Companies);
     await Companies.hasMany(News);
 
+    await Warriors.belongsTo(Games);
+    await Games.hasMany(Warriors);
 
     await Articles.belongsTo(News);
     await News.hasMany(Articles);
 
 
-    return { Companies, BattlePasses, Abouts, Services, Slides, News, Articles, Games, Subscribers, Seasons };
+    return { Companies, Warriors, BattlePasses, Abouts, Services, Slides, News, Articles, Games, Subscribers, Seasons };
   }
 
 }

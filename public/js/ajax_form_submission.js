@@ -1,5 +1,5 @@
 //Form Submition
-function ajaxSubmit(e, form, callBackFunction) {
+function ajaxSubmit(e, form, method,callBackFunction) {
     if(form.valid()) {
         e.preventDefault();
         var action = form.attr('action');
@@ -7,7 +7,7 @@ function ajaxSubmit(e, form, callBackFunction) {
         var data = new FormData(form2);
         console.log(data);
         $.ajax({
-            type: "POST",
+            type: method,
             url: action,
             data: data,
             contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)

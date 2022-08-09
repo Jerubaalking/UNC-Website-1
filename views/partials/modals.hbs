@@ -1,4 +1,3 @@
-
 <script src="/public/js/init.js"></script>
 <script type="text/javascript">
 var callBackFunction;
@@ -40,6 +39,20 @@ function confirmModal(delete_url, param)
   jQuery('#alert-modal').modal('show', {backdrop: 'static'});
   callBackFunction = param;
   document.getElementById('delete_form').setAttribute('action' , delete_url);
+}
+
+function confirmRestoreModal(restore_url, param)
+{
+  jQuery('#restore-modal').modal('show', {backdrop: 'static'});
+  callBackFunction = param;
+  document.getElementById('restore_form').setAttribute('action' , restore_url);
+}
+
+function confirmTrashModal(trash_url, param)
+{
+  jQuery('#trash-modal').modal('show', {backdrop: 'static'});
+  callBackFunction = param;
+  document.getElementById('trash_form').setAttribute('action' , trash_url);
 }
 
 function genericConfirmModal(callBackFunction)
@@ -94,9 +107,9 @@ function callTheCallBackFunction() {
     <div class="modal-content">
       <div class="modal-body p-4">
         <div class="text-center">
-          <i class="dripicons-information h1 text-info"></i>
-          <h4 class="mt-2">heads up!</h4>
-          <p class="mt-3">are you sure?</p>
+          <i class="dripicons-trash h1 text-danger"></i>
+          <h4 class="mt-2">Delete!</h4>
+          <p class="mt-3">You are about to delete!</p>
           <form method="POST" class="ajaxDeleteForm" action="" id = "delete_form">
             <button type="button" class="btn btn-info my-2" data-dismiss="modal">cancel</button>
             <button type="submit" class="btn btn-danger my-2" onclick="">continue</button>
@@ -107,17 +120,38 @@ function callTheCallBackFunction() {
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- Info Alert Modal THIS MODAL WAS USED BECAUSE OF SOME GENERIC ALERTS-->
-<div id="genric-confirmation-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Info Alert Modal -->
+<div id="trash-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-body p-4">
         <div class="text-center">
-          <i class="dripicons-information h1 text-info"></i>
-          <h4 class="mt-2">heads up!</h4>
-          <p class="mt-3">are you sure?</p>
-          <button type="button" class="btn btn-info my-2" data-dismiss="modal">cancel</button>
-          <button type="submit" class="btn btn-danger my-2" onclick="callTheCallBackFunction()">continue</button>
+          <i class="dripicons-trash h1 text-info"></i>
+          <h4 class="mt-2">Trash!</h4>
+          <p class="mt-3">You are about to move to trash!</p>
+          <form method="POST" class="ajaxTrashForm" action="" id = "trash_form">
+            <button type="button" class="btn btn-info my-2" data-dismiss="modal">cancel</button>
+            <button type="submit" class="btn btn-danger my-2" onclick="">continue</button>
+          </form>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Info Alert Modal THIS MODAL WAS USED BECAUSE OF SOME GENERIC ALERTS-->
+<div id="restore-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <div class="text-center">
+          <i class="dripicons-archive h1 text-info"></i>
+          <h4 class="mt-2">Restore!</h4>
+          <p class="mt-3">Your are about to restore!</p>
+          <form method="POST" class="ajaxRestoreForm" action="" id = "restore_form">
+            <button type="button" class="btn btn-info my-2" data-dismiss="modal">cancel</button>
+            <button type="submit" class="btn btn-danger my-2" onclick="">continue</button>
+          </form>
         </div>
       </div>
     </div><!-- /.modal-content -->
@@ -128,5 +162,13 @@ function callTheCallBackFunction() {
     jQuery(".ajaxDeleteForm").submit(function(e) {
         var form = $(this);
         ajaxSubmit(e, form,"DELETE", callBackFunction);
+    });
+    jQuery(".ajaxTrashForm").submit(function(e) {
+        var form = $(this);
+        ajaxSubmit(e, form,"DELETE", callBackFunction);
+    });
+    jQuery(".ajaxRestoreForm").submit(function(e) {
+        var form = $(this);
+        ajaxSubmit(e, form,"PUT", callBackFunction);
     });
 </script>

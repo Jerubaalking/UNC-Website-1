@@ -12,7 +12,7 @@
       <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
         <thead>
           <tr style="background-color: #313a46; color: #ababab;">
-            <th>Group</th>
+            <th>Company</th>
             <th>address</th>
             <th>phone</th>
             <th>email</th>
@@ -23,7 +23,7 @@
         <tbody>
           {{#each abouts}}
             <tr>
-              <td>{{group.name}}</td>
+              <td>{{company.name}}</td>
               <td>{{address}}</td>
               <td>{{phone}}</td>
               <td>{{email}}</td>
@@ -34,8 +34,6 @@
       					<div class="dropdown-menu dropdown-menu-right">
       						<!-- item-->
       						<a href="javascript:void(0);" class="dropdown-item" onclick="rightModal('/settings/abouts/{{id}}', 'update abouts');">edit</a>
-      						<!-- item-->
-      						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/abouts/trash/{{id}}', showAllAbouts )">trash</a>
       						<!-- item-->
       						<a href="javascript:void(0);" class="dropdown-item" onclick="confirmModal('/settings/abouts/{{id}}', showAllAbouts )">delete</a>
       					</div>

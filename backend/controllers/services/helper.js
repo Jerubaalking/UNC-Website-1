@@ -30,10 +30,10 @@ module.exports = {
         return items;
     },
     edit: async (item) => {
-        var items = [];
-        for (var item1 in item) {
-
-            console.log("edit::", item1);
+        let items = [];
+        for (let item1 in item) {
+            console.log("helps items::", item);
+            console.log("edit::", item[item1]);
             console.log("item1", item1);
             if (typeof item[item1] == 'object') {
                 if (item[item1]) {

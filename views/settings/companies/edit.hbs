@@ -1,22 +1,22 @@
 
-<form method="POST" class="d-block ajaxForm" action="/settings/groups/{{Groups.id}}" enctype="multipart/form-data" >
+<form method="POST" class="d-block ajaxForm" action="/settings/companies/{{Companies.id}}" enctype="multipart/form-data" >
     <h4><i class="dripicons-plus"></i>  Update business Group</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
         <label for="name">Name *</label>
-            <input type="text" class="form-control" id="name" name ="name" value="{{Groups.name}}" required>
+            <input type="text" class="form-control" id="name" name ="name" value="{{Companies.name}}" required>
         <small id="namelbl"  class="form-text text-muted">name</small>
         </div>
         <div class="form-group col-md-12">
             <label for="logo">Logo</label>
-            <img src="{{Groups.logo}}" alt="/public/images/logo.jpeg" style="width:250px; margin:5px;">
+            <img src="{{Companies.logo}}" alt="/public/images/logo.jpeg" style="width:250px; margin:5px;">
             <div class="custom-file-upload">
                 <input type="file" class="form-control" id="logo" name = "logo">
             </div>
         </div>
         <div class="form-group col-md-12">
             <label for="description">About Details</label>
-            <textarea class="form-control" id="description"  name="description" placeholder="Description here..." style="height:60vh;">{{Groups.description}}</textarea>
+            <textarea class="form-control" id="description"  name="description" placeholder="Description here..." style="height:60vh;">{{Companies.description}}</textarea>
         </div>
         <div class="form-group spinner hidden col-md-12">
         <div class="spinner-border" style="margin-left:45%;" role="status">
@@ -33,7 +33,7 @@
         $(".spinner").removeClass("hidden");
             e.preventDefault();
             var form = $(this);
-            ajaxSubmit(e, form,"POST", showAllGroups);
+            ajaxSubmit(e, form,"POST", showAllCompanies);
     });
 </script>
 

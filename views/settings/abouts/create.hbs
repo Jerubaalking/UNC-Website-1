@@ -3,14 +3,14 @@
     <h4><i class="dripicons-plus"></i>  Create about</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="groupId">About of Group..?</label>
-            <select name="groupId" id="groupId" class="form-control select2" data-toggle="select2" required>
-                <option value="" selected>select group</option>
-                {{#each Groups}}
+            <label for="companyId">About of Company..?</label>
+            <select name="companyId" id="companyId" class="form-control select2" data-toggle="select2" required>
+                <option value="" selected>select company</option>
+                {{#each Companies}}
                 <option value="{{id}}">{{name}}</option>
                 {{/each}}
             </select>
-            <small id="groupIdlbl" class="form-text text-muted">Group</small>
+            <small id="companyIdlbl" class="form-text text-muted">Company</small>
         </div>
         <div class="form-group col-md-12">
         <label for="email">Email *</label>
@@ -48,7 +48,7 @@
 </form>
 <script>
     $(document).ready(function() {
-        $('#groupId').select2({
+        $('#companyId').select2({
                 dropdownParent: $('#right-modal')
             });
     });
@@ -56,7 +56,7 @@
         $(".spinner").removeClass("hidden");
             e.preventDefault();
             var form = $(this);
-            ajaxSubmit(e, form,"POST", showAllAbout);
+            ajaxSubmit(e, form,"POST", showAllAbouts);
     });
 </script>
 

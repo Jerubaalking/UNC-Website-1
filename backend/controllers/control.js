@@ -32,12 +32,11 @@ module.exports = {
                         break;
 
                     case `/${splitted[1]}/${req.params.id}`:
-                        console.log("ame here::");
+                        console.log("ame here::", splitted[1]);
                         /** assigning last values to the handlebars object*/
                         var editserve = await service.edit(model, req.params.id);
                         console.log(editserve);
                         res.render(`${folder}/edit`, editserve);
-
                         break;
 
                     case `/${splitted[1]}/create`:
@@ -93,7 +92,7 @@ module.exports = {
                         console.log("am here:", splitted[1], req.file, data);
                         if (req.file) {
                             data[req.file.fieldname] = "/public/uploads/" + req.file.filename;
-                            let creator = new _DB(model);
+                            let creator = await new _DB(model);
                             creator.create(data).then((rows) => {
                                 console.log(rows);
                                 rows = JSON.parse(JSON.stringify(rows));
@@ -192,6 +191,7 @@ module.exports = {
                             data[req.file.fieldname] = "/public/uploads/" + req.file.filename;
                             var updater = new _DB(model);
                             updater.update(req.params.id, data).then(async (rows) => {
+                                console.log("rows::",rows)
                                 rows = JSON.parse(JSON.stringify(rows));
                                 console.log("my rows::", rows);
                                 if (!rows.errors) {
@@ -254,7 +254,7 @@ module.exports = {
                                     res.json(report);
                                 });
                             } else {
-                                console.log(data);
+                                console.log("no file data::",data);
                                 var updater = new _DB(model);
                                 updater.update(req.params.id, data).then((rows) => {
                                     rows = JSON.parse(JSON.stringify(rows));
@@ -346,6 +346,7 @@ module.exports = {
                         break;
                 }
                 break;
+                
             default:
                 break;
         }

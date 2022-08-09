@@ -3,18 +3,18 @@
     <h4><i class="dripicons-plus"></i>  Update about</h4><hr>
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="groupId">About of Group..?</label>
-            <select name="groupId" id="groupId" class="form-control select2" data-toggle="select2" required>
-                <option value="">select group</option>
-                {{#each Groups}}
-                {{#ifEquals id ../Abouts.group.id}}
+            <label for="companyId">About of Group..?</label>
+            <select name="companyId" id="companyId" class="form-control select2" data-toggle="select2" required>
+                <option value="">select company</option>
+                {{#each Companies}}
+                {{#ifEquals id ../Abouts.company.id}}
                 <option value="{{id}}" selected>{{name}}</option>
                 {{else}}
                 <option value="{{id}}">{{name}}</option>
                 {{/ifEquals}}
                 {{/each}}
             </select>
-            <small id="groupIdlbl" class="form-text text-muted">Group</small>
+            <small id="companyIdlbl" class="form-text text-muted">Group</small>
         </div>
         <div class="form-group col-md-12">
         <label for="email">Email *</label>
@@ -52,7 +52,7 @@
 </form>
 <script>
      $(document).ready(function() {
-        $('#groupId').select2({
+        $('#companyId').select2({
                 dropdownParent: $('#right-modal')
             });
     });
@@ -60,7 +60,7 @@
         $(".spinner").removeClass("hidden");
             e.preventDefault();
             var form = $(this);
-            ajaxSubmit(e, form,"POST", showAllAbout);
+            ajaxSubmit(e, form,"POST", showAllAbouts);
     });
 </script>
 
